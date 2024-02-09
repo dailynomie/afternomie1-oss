@@ -62,7 +62,7 @@
 					<div class="row mt-4 mb-4 mt-sm-5 mb-sm-5">
 					  <div class="col-12 col-md-8 offset-md-2">
 						<h1>Why should I use it?</h1>
-						<p>Regardless of age, health, social status, or geographical location, one day we will all die or be severely ill. 
+						<p>As the Stoic have been telling us already long ago; regardless of age, health, social status, or geographical location, one day we will all die or be severely ill. 
 							Leaving a note to the people you trust will allow you to give them your last message and possibly fulfill your last wills.</p>
 					  </div>
 					</div>
