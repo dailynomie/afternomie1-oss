@@ -60,7 +60,7 @@
 
           var d = new Date();
           //temp settings
-          noteLog[0].LASTRESET = d.setDate(d.getDate())-(7*(1000 * 3600 * 24));
+          //noteLog[0].LASTRESET = d.setDate(d.getDate())-(7*(1000 * 3600 * 24));
           //noteLog[0].LASTREQUEST = d.setDate(d.getDate())-(7*(1000 * 3600 * 24));
           //noteLog[0].LASTREQUEST = d.setDate(d.getDate());
           //temp settings end
