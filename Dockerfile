@@ -12,6 +12,9 @@ WORKDIR /app
 # Copy all local files into the image
 COPY . .
 
+# Make db writable
+RUN sudo chmod 777 /app/data/an_v2-1.sqli
+
 # Clean install all node modules
 RUN npm ci
 
