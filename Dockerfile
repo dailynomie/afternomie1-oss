@@ -15,6 +15,7 @@ COPY . .
 # Make db writable
 RUN set -ex && apk --no-cache add sudo
 RUN sudo chmod 777 /app/data/an_v2-1.sqli
+RUN sudo chmod 777 /app/data
 
 # Clean install all node modules
 RUN npm ci
