@@ -1,0 +1,142 @@
+<script>
+  import { encryptObject } from '../../services/encrypt';
+  import { QRCodeImage } from "svelte-qrcode-image";
+  import { onMount } from 'svelte';
+  import {createEventDispatcher} from 'svelte';
+  export let exp_checked =true;
+	export let subject = "";
+	export let note = "";
+	export let email_primary = "";
+	export let email_secondary = "";
+	export let inactivity = "7";
+	export let exp_date = "";
+  export let view = "start4";
+
+  var qrwidth = 0;
+
+  $: innerWidth = 0
+
+  $: if (innerWidth) {
+    qrwidth = innerWidth*0.93;
+    if (qrwidth > 700){qrwidth = 700}
+  }
+
+  const dispatch = createEventDispatcher();
+   var domain = window.location.hostname;
+   var port = window.location.port;
+   if (port !="") {domain = domain +":"+port}
+   console.log(domain);
+   var viewprint = true;
+   var refresh = false;
+   var enckey = "temp";
+   var txt = "This is a test";
+
+   function encryptobject(){
+    var uniqueid = key(15);
+    var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid}
+    enckey = key(15);
+    var encryptednote = encryptObject(data, enckey)
+    console.log(encryptednote)
+    txt = domain+"/view/"+encryptednote;
+    if (txt.includes("localhost")) {
+      txt = "http://"+txt
+    }
+    else {txt = "https://"+txt}
+    console.log(txt);
+    storeindb(uniqueid);
+   }
+
+   function key(length){
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+   var charLength = chars.length;
+   var result = '';
+   for ( var i = 0; i < length; i++ ) {
+      result += chars.charAt(Math.floor(Math.random() * charLength));
+   }
+   return result;
+   }
+
+   function storeindb(uniqueid=""){
+    dispatch('savelog',uniqueid);
+   }
+   
+   function print() {
+    qrwidth = 625;
+    viewprint = false;
+    refresh = true;
+		setTimeout(function() {
+      refresh = false
+      
+   }, 10)
+
+   setTimeout(function() {
+    window.print();
+      
+   }, 100)
+
+   setTimeout(function() {
+    viewprint = true;
+    view = "start5";
+      
+   }, 200)
+   
+   
+   
+   }
+
+   onMount (()=>{
+    encryptobject();
+    //storeindb();
+   })
+
+</script>
+
+<svelte:window bind:innerWidth />
+
+{#if !refresh}
+<main class="container"  style="background-color: #CAD1D8;">
+  <div class="row align-items-center min-content-height">
+    <div class="col">
+      <div class="pb-3 pt-3 pt-md-5 mx-auto text-center">
+        <h1 class="display-3">The AfterNomie QR Code</h1>
+      </div>
+      <div class="pb-3">
+        
+        <div  style="text-align:center">
+        
+          <QRCodeImage bind:text={txt} scale={8} displayType="canvas" bind:width={qrwidth}/> 
+        
+        </div>
+          
+        
+        <div class="row">
+          <div class="col-12 col-md-8 offset-md-2 mt-3 text-break text-center">
+            This document was created on AfterNomie.com, a platform for
+                    creating emergency notes that can only be read by trusted contacts
+                    after being dead or severely injured.
+                    In order to read the following emergency note, scan the QR code
+                    and then enter this access code: {enckey}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-8 offset-md-2 mt-3 text-break text-center">
+            <p><b><a href={txt} target='_blank'>link to note</a></b></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-8 offset-md-2 mt-3 text-break text-center">
+            This Note was created on: {new Date()}
+          </div>
+        </div>
+        {#if viewprint}
+        <div class="row pt-5 text-center">
+          <div class="col">
+            <button class="btn btn-primary btn-lg" on:click={()=>{print()}}>Print</button>
+        </div>
+         </div>
+         {/if}
+      </div>
+    </div>
+  </div>
+</main>
+{/if}
