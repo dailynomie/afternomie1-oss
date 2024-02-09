@@ -24,7 +24,7 @@
 </script>
 
 <header class="d-print-none d-flex flex-column flex-md-row align-items-center pt-5 pb-2 p-md-3 px-md-3 mb-3 sticky-md-top">
-	<p class="my-0 me-md-auto fw-normal"><a href="/"><img src="../img/logo_grey.svg" class="logo" alt="AfterNomie"></a></p>
+	<p class="my-0 me-md-auto fw-normal"><a href="/"><img src="../img/logo_grey_beta.svg" class="logo" alt="AfterNomie"></a></p>
 	{#if !refresh}
 	{#if currentpage == "index"}
 	<a class="btn btn-primary btn-lg d-none d-md-inline-block" href="/start">Get Started</a>
