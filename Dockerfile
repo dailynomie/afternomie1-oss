@@ -13,6 +13,7 @@ WORKDIR /app
 COPY . .
 
 # Make db writable
+RUN apt-get -y install sudo
 RUN sudo chmod 777 /app/data/an_v2-1.sqli
 
 # Clean install all node modules
