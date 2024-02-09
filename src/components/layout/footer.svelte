@@ -1,5 +1,5 @@
 <script>
-	import GraphicLink from '../atoms/graphicLink.svelte';
+	//import GraphicLink from '../atoms/graphicLink.svelte';
 </script>
 
 <footer>

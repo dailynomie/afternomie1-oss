@@ -1,5 +1,5 @@
 <script>
-	import Image from '../components/atoms/image.svelte';
+	//import Image from '../components/atoms/image.svelte';
 </script>
 
 <style>
