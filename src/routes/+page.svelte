@@ -52,7 +52,7 @@
 					<div class="row mt-4 mb-4 mt-sm-5 mb-sm-5">
 					  <div class="col-12 col-md-8 offset-md-2">
 						<h1>How it works</h1>
-						<p>Soon after you write your note, it will be encrypted and converted into a QR code which you can give to a person you trust. 
+						<p>Directly after you created your note, it will be encrypted and converted into a QR code which you can give to a person you trust. 
 							When this person tries to access your message, AfterNomie will try to contact you via email as soon as possible; 
 							if you do not reply within the period of time you previously defined, your note will become visible to your trusted person.
 							When you use AfterNomie in combination with <b>DailyNomie & Sync Service</b> it will enable you to reveal your Nomie tracking
@@ -69,15 +69,15 @@
 					<div class="row mt-4 mb-4 mt-sm-5 mb-sm-5">
 					  <div class="col-12 col-md-8 offset-md-2">
 						<h1>We don't store your data</h1>
-						<p>Unlike other platforms, there is no need to register an account on AfterNomie. 
+						<p>There is no need to register an account on AfterNomie. 
 							In fact, your data stays only in the QR code that is generated and eventually printed. 
-							If you don't believe us, you can take a look at the source code.</p>
+							You always have a look into the source code if you would like to validate our statement .</p>
 					  </div>
 					</div>
 					<div class="row mt-4 mb-4 mt-sm-5 mb-sm-5">
 					  <div class="col-12 col-md-8 offset-md-2">
 						<h1>Safe</h1>
-						<p>Your note is encrypted using the AES-256-CTR algorithm and its access code is randomly generated. 
+						<p>Your note is securely encrypted and its access code is randomly generated. 
 							Even if AfterNomie gets hacked, your notes cannot be accessed because once they are generated they are not stored on AfterNomie. 
 							Your notes are only stored in the generated QR code you share with your trusted friend</p>
 					  </div>
