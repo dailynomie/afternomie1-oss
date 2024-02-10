@@ -82,13 +82,7 @@ window.onfocus=function(){
   viewprint = true;
    view = "start5"
 }
-var printEvent = window.matchMedia('print');
-printEvent.addListener(function(printEnd) {
-    if (!printEnd.matches) {
-      viewprint = true;
-      view = "start5"
-    };
-});
+
       
    }, 100)
 
