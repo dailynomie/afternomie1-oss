@@ -17,6 +17,9 @@
 	var exp_date = "";
     var view = "start1"
 	var refresh = false;
+	var stored = false;
+	var qrtxt = "Dummy";
+	var accesscode = "No valid accesscode";
 
 	$: if(view){
 		refresh = true;
@@ -48,7 +51,7 @@
 	{:else if view=="start3"}
 	<Start3 bind:view={view} bind:exp_checked={exp_checked} bind:subject={subject} bind:note={note} bind:email_primary={email_primary} bind:email_secondary={email_secondary} bind:inactivity={inactivity} bind:exp_date={exp_date}></Start3>
 	{:else if view=="start4"}
-	<Start4 on:savelog={saveLog} bind:view={view} bind:exp_checked={exp_checked} bind:subject={subject} bind:note={note} bind:email_primary={email_primary} bind:email_secondary={email_secondary} bind:inactivity={inactivity} bind:exp_date={exp_date}></Start4>
+	<Start4 on:savelog={saveLog} bind:enckey={accesscode} bind:txt={qrtxt} bind:stored={stored} bind:view={view} bind:exp_checked={exp_checked} bind:subject={subject} bind:note={note} bind:email_primary={email_primary} bind:email_secondary={email_secondary} bind:inactivity={inactivity} bind:exp_date={exp_date}></Start4>
 	{:else if view=="start5"}
 	<Start5 bind:view={view}></Start5>
 	

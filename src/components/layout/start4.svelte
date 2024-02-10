@@ -11,8 +11,12 @@
 	export let inactivity = "7";
 	export let exp_date = "";
   export let view = "start4";
+  export let stored = false;
+  export let txt = "dummy";
+  export let enckey = "no valid key"
 
   var qrwidth = 0;
+  
 
   $: innerWidth = 0
 
@@ -28,10 +32,11 @@
    console.log(domain);
    var viewprint = true;
    var refresh = false;
-   var enckey = "temp";
-   var txt = "This is a test";
+
+  
 
    function encryptobject(){
+    if (stored == false) {
     var uniqueid = key(15);
     var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid}
     enckey = key(15);
@@ -44,6 +49,8 @@
     else {txt = "https://"+txt}
     console.log(txt);
     storeindb(uniqueid);
+    stored = true;
+  }
    }
 
    function key(length){
@@ -69,24 +76,15 @@
       
    }, 10)
 
-   setTimeout(function() {
-    window.print();
-      
-   }, 100)
-
-   setTimeout(function() {
-    viewprint = true;
-    view = "start5";
-      
-   }, 200)
-   
-   
-   
+  window.print() //or whatever you want to do
+window.onfocus=function(){
+  viewprint = true;
+   view = "start5"
+}
    }
 
    onMount (()=>{
     encryptobject();
-    //storeindb();
    })
 
 </script>
