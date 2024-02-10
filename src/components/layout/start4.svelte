@@ -16,13 +16,24 @@
   export let enckey = "no valid key"
 
   var qrwidth = 0;
+  var refreshqr = false;
+  var lockwidth = false;
   
 
   $: innerWidth = 0
 
-  $: if (innerWidth) {
+  $: if (innerWidth && !lockwidth) {
+    console.log(innerWidth);
     qrwidth = innerWidth*0.93;
     if (qrwidth > 700){qrwidth = 700}
+
+    //refreshqr
+    refreshqr = true;
+		setTimeout(function() {
+      refreshqr = false
+      
+   }, 10)
+
   }
 
   const dispatch = createEventDispatcher();
@@ -67,25 +78,25 @@
     dispatch('savelog',uniqueid);
    }
    
-   function print() {
-    qrwidth = 625;
-    viewprint = false;
-    refresh = true;
+   function printscreen() {
+    lockwidth = true;
+    qrwidth = 500;
+    //viewprint = false;
+    refreshqr = true;
 		setTimeout(function() {
-      refresh = false
+      refreshqr = false
       
-   }, 10)
+   }, 1)
 
   setTimeout(function() {
    window.print() 
-window.onfocus=function(){
- viewprint = true;
-  view = "start5"
-}}, 100)
+}, 100)
 
+setTimeout(function() {
+  lockwidth = false; 
+}, 3000)
 
-
-   }
+ }
 
    onMount (()=>{
     encryptobject();
@@ -105,9 +116,9 @@ window.onfocus=function(){
       <div class="pb-3">
         
         <div  style="text-align:center">
-        
+          {#if !refreshqr}
           <QRCodeImage bind:text={txt} scale={8} displayType="canvas" bind:width={qrwidth}/> 
-        
+          {/if}
         </div>
           
         
@@ -121,8 +132,10 @@ window.onfocus=function(){
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-8 offset-md-2 mt-3 text-break text-center">
+          <div class="col-12 col-md-8 offset-md-2 mt-3 text-break text-center not-printable">
             <p>Beta Feature: <b><a href={txt} target='_blank'>link to note</a></b></p>
+            <p><b>Very important!</b> Add the email address dailynomie@gmail.com 
+                to your email provider's safe senders list to prevent any notification from us regarding the note you just created from mistakenly ending up in spam.</p>
           </div>
         </div>
         <div class="row">
@@ -131,9 +144,9 @@ window.onfocus=function(){
           </div>
         </div>
         {#if viewprint}
-        <div class="row pt-5 text-center">
+        <div class="row pt-5 text-center not-printable">
           <div class="col">
-            <button class="btn btn-primary btn-lg" on:click={()=>{print()}}>Print</button>
+            <button class="btn btn-primary btn-lg" on:click={()=>{printscreen()}}>Print</button>
         </div>
          </div>
          {/if}
@@ -142,3 +155,9 @@ window.onfocus=function(){
   </div>
 </main>
 {/if}
+
+<style>
+  @media print {
+      .not-printable { display: none; }
+  }
+</style>

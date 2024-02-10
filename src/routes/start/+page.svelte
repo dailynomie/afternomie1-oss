@@ -3,7 +3,6 @@
 	import Start2 from "../../components/layout/start2.svelte"
 	import Start3 from "../../components/layout/start3.svelte"
 	import Start4 from "../../components/layout/start4.svelte"
-	import Start5 from "../../components/layout/start5.svelte"
 	import type { PageData } from './$types';
     export let data: PageData;
 
@@ -52,9 +51,6 @@
 	<Start3 bind:view={view} bind:exp_checked={exp_checked} bind:subject={subject} bind:note={note} bind:email_primary={email_primary} bind:email_secondary={email_secondary} bind:inactivity={inactivity} bind:exp_date={exp_date}></Start3>
 	{:else if view=="start4"}
 	<Start4 on:savelog={saveLog} bind:enckey={accesscode} bind:txt={qrtxt} bind:stored={stored} bind:view={view} bind:exp_checked={exp_checked} bind:subject={subject} bind:note={note} bind:email_primary={email_primary} bind:email_secondary={email_secondary} bind:inactivity={inactivity} bind:exp_date={exp_date}></Start4>
-	{:else if view=="start5"}
-	<Start5 bind:view={view}></Start5>
-	
 	{/if}
 	{/if}
 
