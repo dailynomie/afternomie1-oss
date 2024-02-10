@@ -76,17 +76,18 @@
       
    }, 10)
 
-   setTimeout(function() {
-    window.print() 
-window.onfocus=function(){
-  viewprint = true;
-   view = "start5"
-}
+ //  setTimeout(function() {
+ //   window.print() 
+//window.onfocus=function(){
+//  viewprint = true;
+//   view = "start5"
+//}}, 100)
 
-      
-   }, 100)
+setTimeout(function () { window.print(); }, 500);
+window.onfocus = function () { setTimeout(function () { viewprint = true;
+   view = "start5" }, 500); }  
 
-  
+
    }
 
    onMount (()=>{
