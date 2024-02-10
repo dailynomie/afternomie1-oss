@@ -76,11 +76,23 @@
       
    }, 10)
 
-  window.print() //or whatever you want to do
+   setTimeout(function() {
+    window.print() 
 window.onfocus=function(){
   viewprint = true;
    view = "start5"
 }
+var printEvent = window.matchMedia('print');
+printEvent.addListener(function(printEnd) {
+    if (!printEnd.matches) {
+      viewprint = true;
+      view = "start5"
+    };
+});
+      
+   }, 100)
+
+  
    }
 
    onMount (()=>{
@@ -118,7 +130,7 @@ window.onfocus=function(){
         </div>
         <div class="row">
           <div class="col-12 col-md-8 offset-md-2 mt-3 text-break text-center">
-            <p><b><a href={txt} target='_blank'>link to note</a></b></p>
+            <p>Beta Feature: <b><a href={txt} target='_blank'>link to note</a></b></p>
           </div>
         </div>
         <div class="row">
