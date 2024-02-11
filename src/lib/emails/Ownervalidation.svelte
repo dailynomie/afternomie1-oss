@@ -4,9 +4,7 @@
 	export let uniqueid = "";
     export let subject = "";
     export let domain = "";
-    console.log("UniqueId: ",uniqueid)
     var endpoint = domain+ "/block/"+uniqueid;
-    console.log(endpoint);
 
 
 </script>

@@ -11,15 +11,8 @@
     var statusmessage = ""
     var port = $page.url.port
     if (port !="") {domain = domain +":"+port}
-    console.log(domain)
 
-    //var encnote = "U2FsdGVkX19DqR6e84dm7a5xF7Cqs3nknDJ30m3nsfw3%2Bb0b%2BgbqJeTQd7FmIkaMQtmgt0z5JD2Iyl49S0COoO1ZWSW%2Bz%2B1cHu7EE6pxo4eAB1C4Rj74KixpT6m7fcaWMRJobyN63j0XQXDKOpAu2Hg1f9jD2s38ZTkNIMoomziQ7IaPAtLOYGBW4uD7iQb8st52oyLWle%2BlQaAJqhAx4bdapBP04cMO5wA1f7StpGgrn6yuP%2FXEup9HmydS1KFgUYMXwKFAjBR1N9sBeCTOqYJbjTp5O4VS6knVzwJhfZFWlcvcgXLi1zuyhyO99u08RUzxOlUH0Vux1M1KSBDFVg%3D%3D";
     var encnote = data.encnote;
-    //var key = "BISVKYAQDOMZOFK";
-
-    //var note = decryptObject(encnote,key)
-    console.log("Data:",data.logs)
-    console.log("Encnote: ",encnote)
     var subject ="";
     var note = "";
     var expdate = "";
@@ -27,11 +20,9 @@
 
     $: if(key) {
         try {
-        console.log(decryptObject(encnote,key))
         invalidaccesscode = false;
         txtfieldclass = "form-control is-valid"; }
         catch(error){
-            console.log("non valid key")
             invalidaccesscode = true;
             txtfieldclass = "form-control is-invalid";
         }
@@ -45,27 +36,24 @@
     async function accessNote(){
       var outcome = 0;
         var noteLog = await getNoteLog();
-        console.log("notelog",noteLog)
         if (noteLog.length == 0) {
           view ="oops"
           outcome = 0;
         }
         else{
           var message = decryptObject(encnote,key);
-          console.log(noteLog)
           //validate log status
           // outcome 1: still within waiting period
           // outcome 2: outside waiting period
           // outcome 3: reset in the mean time => action to alignlastrequest date with reset date
 
           var d = new Date();
-          //temp settings
+          //temp settings for testing:
           //noteLog[0].LASTRESET = d.setDate(d.getDate())-(7*(1000 * 3600 * 24));
           //noteLog[0].LASTREQUEST = d.setDate(d.getDate())-(7*(1000 * 3600 * 24));
           //noteLog[0].LASTREQUEST = d.setDate(d.getDate());
           //temp settings end
           let daydifference = Math.round((d.setDate(d.getDate()) - noteLog[0].LASTREQUEST)/(1000 * 3600 * 24));
-          console.log(daydifference)
         
           
           //first validate if expired
@@ -112,7 +100,7 @@
             }
           }
         }
-          console.log("Outcome:",outcome)
+          
         }
         
         //view = "result"
@@ -121,9 +109,7 @@
 
     async function getNoteLog(){
         var message = decryptObject(encnote,key);
-        console.log("Message: ",message)
         var uniqueid = message.uniqueid;
-        console.log("UniqueID",uniqueid)
         const response = await fetch('/view/getLog', {
 			method: 'POST',
 			body: JSON.stringify({ "uniqueid":uniqueid}),
@@ -132,9 +118,7 @@
 			}
 		});
         const data = await response.json()
-        if (data.length > 0){console.log("Record found")}
-        else {("No Record found")}
-
+        
         return data;
     }
 

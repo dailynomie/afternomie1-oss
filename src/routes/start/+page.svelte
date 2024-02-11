@@ -27,7 +27,7 @@
    }, 10)}
 
    const saveLog = async (event)=>{
-	console.log("savelog triggered")
+	console.log("*QR Code log created*")
 	var lastrequest = new Date().getTime();
 	var lastvalidated = new Date().getTime();
 	const response = await fetch('/start/addLog', {

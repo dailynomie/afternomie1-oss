@@ -10,9 +10,6 @@
 
   async function CreatePDF() {
    view="start4"
-    //window.print()
-    //const pdf = await genNotePdf(data);
-    //console.log(pdf)
   }
    
 </script>

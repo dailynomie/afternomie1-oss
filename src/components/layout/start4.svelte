@@ -23,7 +23,6 @@
   $: innerWidth = 0
 
   $: if (innerWidth && !lockwidth) {
-    console.log(innerWidth);
     qrwidth = innerWidth*0.93;
     if (qrwidth > 700){qrwidth = 700}
 
@@ -40,7 +39,6 @@
    var domain = window.location.hostname;
    var port = window.location.port;
    if (port !="") {domain = domain +":"+port}
-   console.log(domain);
    var viewprint = true;
    var refresh = false;
 
@@ -52,13 +50,11 @@
     var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid}
     enckey = key(15);
     var encryptednote = encryptObject(data, enckey)
-    console.log(encryptednote)
     txt = domain+"/view/"+encryptednote;
     if (txt.includes("localhost")) {
       txt = "http://"+txt
     }
     else {txt = "https://"+txt}
-    console.log(txt);
     storeindb(uniqueid);
     stored = true;
   }

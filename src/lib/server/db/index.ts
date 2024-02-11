@@ -20,7 +20,6 @@ export function getLog(uniqueid=""): noteLog[] {
 
 
 export function addLog(uniqueid="",lastrequest=0,lastreset=0) {
-    console.log("check addLog")
     const sql = "INSERT INTO LOG (UNIQUEID, LASTREQUEST, LASTRESET) VALUES ( '"+uniqueid+"'" + ", "+ lastrequest + ", " + lastreset + ")";
     const stmnt = db.prepare(sql);
     stmnt.run();

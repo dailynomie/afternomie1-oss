@@ -7,8 +7,6 @@
 	export let inactivity = "7";
 	export let exp_date = "";
     export let view = "start2";
-
-    console.log(exp_date);
     
     var date = new Date(new Date().setDate(new Date().getDate() + 7))
 	//date.setDate(date.getDate() + 8);

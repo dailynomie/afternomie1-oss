@@ -4,7 +4,6 @@
     export let data: PageData;
 
     var uniqueid = data.uniqueid;
-    console.log(uniqueid)
    
     async function updateNoteLog(query=""){
         
@@ -24,7 +23,6 @@
       var d = new Date();
       var dd = d.setDate(d.getDate());
       var query = "UPDATE LOG SET LASTRESET = '" + dd + "' WHERE UNIQUEID = '" + uniqueid+"'";
-      console.log("updateafterblock: ",query)
     updateNoteLog(query);
    })
 

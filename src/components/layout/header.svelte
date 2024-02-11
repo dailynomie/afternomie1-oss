@@ -5,7 +5,6 @@
 	var refresh = false;
 
 	$: if ($page.url.pathname) {
-		console.log("check", $page.url.pathname)
 	if ($page.url.pathname == "/") {
 		currentpage = "index"
 	}
