@@ -8,8 +8,7 @@
 	export let exp_date = "";
     export let view = "start2";
     
-    var date = new Date(new Date().setDate(new Date().getDate() + 7))
-	//date.setDate(date.getDate() + 8);
+  var date = new Date(new Date().setDate(new Date().getDate() + 7))
 	var dayst = "";
 	var monthst = ""
 	var day = date.getDate();

@@ -83,10 +83,7 @@
               view = "reveal"
               var now = d.setDate(d.getDate())
               var query = "DELETE FROM LOG WHERE UNIQUEID = '" + noteLog[0].UNIQUEID+"'";
-              //query = "UPDATE LOG SET LASTRESET = '" + now + "' WHERE UNIQUEID = '" + noteLog[0].UNIQUEID+"'";
               updateNoteLog(query)
-              //query = "UPDATE LOG SET LASTREQUEST = '" + now + "' WHERE UNIQUEID = '" + noteLog[0].UNIQUEID+"'";
-              //updateNoteLog(query)
               };
           }
           else {
@@ -102,9 +99,6 @@
         }
           
         }
-        
-        //view = "result"
-
     }
 
     async function getNoteLog(){
@@ -136,9 +130,6 @@
 				'content-type': 'application/json'
 			}
 		});
-        //const data = await response.json()
-       
-       // return data;
     }
 
     async function updateNoteLog(query=""){
@@ -150,9 +141,6 @@
 				'content-type': 'application/json'
 			}
 		});
-        //const data = await response.json()
-        
-        //return data;
     }
 
 </script>

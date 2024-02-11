@@ -1,5 +1,4 @@
 
-import { json } from '@sveltejs/kit';
 import { render } from 'svelte-email';
 import Ownervalidation from '$lib/emails/Ownervalidation.svelte';
 import nodemailer from 'nodemailer';

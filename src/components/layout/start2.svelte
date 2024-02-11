@@ -1,5 +1,5 @@
 <script>
-    export let exp_checked =true;
+  export let exp_checked =true;
 	export let subject = "";
 	export let note = "";
 	export let email_primary = "";
