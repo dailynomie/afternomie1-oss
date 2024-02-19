@@ -5,5 +5,7 @@ import {addLog} from '$lib/server/db';
 export async function POST({ request }) { 
     const data = await request.json();
     addLog(data.uniqueid,data.lastrequest,data.lastreset)
-    return json({"succes":"yes"}); 
+    const response = new Response(JSON.stringify({"succes":"yes"}));
+    response.headers.append('Access-Control-Allow-Origin', '*');
+    return response;
 } 

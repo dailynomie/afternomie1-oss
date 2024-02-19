@@ -47,11 +47,21 @@
    function encryptobject(){
     if (stored == false) {
     var uniqueid = key(15);
-    var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid}
+    //// INCLUDE NOMIE FOR TEST
+    var url = "https://sync.dailynomie.com/"
+    var db = "dn_d0ig1qkc55zhh4l"
+    var user = "nomieuser_pr6qd276ku"
+    var pw = "uwVi5AeI6pCnG_u!H!"
+    var nomie = { url: url, db: db, user: user, pw: pw };
+    var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid,"nomiedata":nomie}
+    //// INCLUDE NOMIE FOR TEST END
+    
+    //var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid}
+    
     enckey = key(15);
     var encryptednote = encryptObject(data, enckey)
     txt = domain+"/view/"+encryptednote;
-    if (txt.includes("localhost")) {
+    if (txt.includes("localhost") || txt.includes("192.168.178")) {
       txt = "http://"+txt
     }
     else {txt = "https://"+txt}
@@ -103,7 +113,7 @@ setTimeout(function() {
 <svelte:window bind:innerWidth />
 
 {#if !refresh}
-<main class="container"  style="background-color: #CAD1D8;">
+<main class="container"  style="background-color:#CAD1D8">
   <div class="row align-items-center min-content-height">
     <div class="col">
       <div class="pb-3 pt-3 pt-md-5 mx-auto text-center">

@@ -1,11 +1,4 @@
 <script>
-  export let exp_checked =true;
-	export let subject = "";
-	export let note = "";
-	export let email_primary = "";
-	export let email_secondary = "";
-	export let inactivity = "7";
-	export let exp_date = "";
   export let view = "start3";
 
   async function CreatePDF() {

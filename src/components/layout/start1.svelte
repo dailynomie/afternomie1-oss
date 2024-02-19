@@ -1,12 +1,12 @@
 <script>
-    export let exp_checked =true;
+  export let exp_checked =true;
 	export let subject = "";
 	export let note = "";
 	export let email_primary = "";
 	export let email_secondary = "";
 	export let inactivity = "7";
 	export let exp_date = "";
-    export let view = "start2";
+  export let view = "start2";
     
   var date = new Date(new Date().setDate(new Date().getDate() + 7))
 	var dayst = "";
@@ -18,7 +18,6 @@
   var validsecondary = false;
   var validsubject = false;
   var validnote = false;
-  var validform = false;
   var txtfieldclasspri = "form-control is-invalid";
   var txtfieldclasssec = "form-control is-invalid";
   var txtfieldclasssub = "form-control is-invalid";

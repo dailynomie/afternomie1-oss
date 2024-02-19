@@ -1,6 +1,6 @@
 {
-	"name": "my-app",
-	"version": "0.0.1",
+	"name": "afternomie",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "vite dev --host",
 		"build": "vite build",
@@ -25,6 +25,7 @@
 		"@types/better-sqlite3": "^7.6.9",
 		"@types/crypto-js": "^4.2.2",
 		"@types/eslint": "8.56.0",
+		"@types/lodash": "^4.14.202",
 		"@types/nodemailer": "^6.4.14",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
@@ -43,7 +44,10 @@
 	"type": "module",
 	"dependencies": {
 		"better-sqlite3": "^9.4.0",
+		"chunk": "^0.0.3",
 		"crypto-js": "^4.2.0",
+		"dayjs": "^1.11.10",
+		"lodash": "^4.17.21",
 		"nodemailer": "^6.9.9",
 		"svelte-email": "^0.0.4",
 		"svelte-qrcode-image": "^1.0.0-rc.2"
