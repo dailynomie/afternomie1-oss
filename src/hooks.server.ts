@@ -4,18 +4,18 @@
 
 import type { Handle } from '@sveltejs/kit';
 
+const securityHeaders = {
+    'Access-Control-Allow-Origin': '*',
+}
 
 
 
-export const handle : Handle = async ({event, resolve}) => 
 
-{
+export const handle: Handle = async ({ event, resolve }) => {
+    const response = await resolve(event);
+    Object.entries(securityHeaders).forEach(
+        ([header, value]) => response.headers.set(header, value)
+    );
 
-    if (event.request.method !== "OPTIONS") 
-
-        return await resolve(event)
-
-
-    return new Response(null, {status: 200})
-
+    return response;
 }
