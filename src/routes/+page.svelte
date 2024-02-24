@@ -59,7 +59,7 @@
 							</div>
 							<div class="row mt-4 mb-4 mt-sm-5 mb-sm-5">
 								<div class="col-12 col-md-8 offset-md-2">
-									<h1>䷕ Safe</h1>
+									<h1>🔐 Safe</h1>
 									<p>
 										Your note is securely encrypted and its access code is randomly generated. Even
 										if AfterNomie gets hacked, your notes cannot be accessed because once they are
