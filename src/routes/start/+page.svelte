@@ -4,7 +4,8 @@
 	import Start3 from "../../components/layout/start3.svelte"
 	import Start4 from "../../components/layout/start4.svelte"
 	import type { PageData } from './$types';
-    export let data: PageData;
+
+    
 
 
 	var exp_checked = false;
@@ -25,6 +26,8 @@
 		setTimeout(function() {
       refresh = false
    }, 10)}
+
+
 
    const saveLog = async (event)=>{
 	console.log("*QR Code log created*")

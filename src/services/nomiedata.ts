@@ -3,11 +3,6 @@ import dayjs from 'dayjs'
 
 export const getNomieData = async (url:string, db:string,user:string,pw:string)=>{
     
-    var db = 'dn_i9q8mxs2f5dgkg1';
-    var user = 'nomieuser_qf5a01nw6p';
-    var pw = '8oq!i!Ti80LfdNyv4d';
-    url = url+db+'/_all_docs?include_docs=true';
-    
     let result = await fetch(url, {
     credentials: 'include',
     headers: {

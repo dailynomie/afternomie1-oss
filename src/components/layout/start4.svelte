@@ -48,10 +48,10 @@
     if (stored == false) {
     var uniqueid = key(15);
     //// INCLUDE NOMIE FOR TEST
-    var url = "https://sync.dailynomie.com/"
-    var db = "dn_d0ig1qkc55zhh4l"
-    var user = "nomieuser_pr6qd276ku"
-    var pw = "uwVi5AeI6pCnG_u!H!"
+    var url = ""
+    var db = ""
+    var user = ""
+    var pw = ""
     var nomie = { url: url, db: db, user: user, pw: pw };
     var data = {"subject":subject,"note":note,"email_primary":email_primary,"email_secondary":email_secondary,"inactivity":inactivity,"exp_checked":exp_checked,"exp_date":exp_date,"uniqueid":uniqueid,"nomiedata":nomie}
     //// INCLUDE NOMIE FOR TEST END

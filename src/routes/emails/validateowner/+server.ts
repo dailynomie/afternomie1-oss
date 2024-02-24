@@ -4,6 +4,7 @@ import Ownervalidation from '$lib/emails/Ownervalidation.svelte';
 import nodemailer from 'nodemailer';
 import type { RequestHandler } from './$types';
 
+
 async function sendMail(domain="",primary="",secondary="",uniqueid="",subject=""){
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
