@@ -57,6 +57,12 @@
 		await loadData()
 	}
 
+	async function dumpAll() {
+		var query = 'SELECT * FROM LOG';
+		var alllogs = await runQuery(query)
+		console.log(alllogs)
+	}
+
 	onMount(async () => {
 		loadData();
 	});
@@ -88,6 +94,15 @@
 									on:click={() => {
 										deleteExpired();
 									}}>Flush {totalexpirelogs} expired Messages</button
+								>
+							</div>
+							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
+								<p>DUMP ALL LOGS IN COSOLE:</p>
+								<button
+									class="btn btn-primary btn-lg"
+									on:click={() => {
+										dumpAll();
+									}}>Dump</button
 								>
 							</div>
 						</div>
