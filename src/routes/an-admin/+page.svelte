@@ -57,6 +57,12 @@
 		await loadData()
 	}
 
+	async function deleteAll() {
+		var query = 'DELETE FROM LOG where UNIQUEID IS NOT NULL'
+		await deleteRows(query)
+		await loadData()
+	}
+
 	async function dumpAll() {
 		var query = 'SELECT * FROM LOG';
 		var alllogs = await runQuery(query)
@@ -83,7 +89,7 @@
 								<button
 									class="btn btn-primary btn-lg"
 									on:click={() => {
-										//console.log('Placeholder');
+										deleteAll()
 									}}>Flush all {totallogs} Logs</button
 								>
 							</div>
