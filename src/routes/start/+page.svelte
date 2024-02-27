@@ -35,7 +35,7 @@
 	var lastvalidated = new Date().getTime();
 	const response = await fetch('/start/addLog', {
 			method: 'POST',
-			body: JSON.stringify({ "uniqueid":event.detail,"lastrequest":lastrequest,"lastreset":lastvalidated }),
+			body: JSON.stringify({ "uniqueid":event.detail,"lastrequest":lastrequest,"lastreset":lastvalidated,"expiredate":new Date(exp_date).getTime(),"expires":exp_checked }),
 			headers: {
 				'content-type': 'application/json'
 			}

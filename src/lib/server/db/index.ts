@@ -19,8 +19,8 @@ export function getLog(uniqueid=""): noteLog[] {
 }
 
 
-export function addLog(uniqueid="",lastrequest=0,lastreset=0) {
-    const sql = "INSERT INTO LOG (UNIQUEID, LASTREQUEST, LASTRESET) VALUES ( '"+uniqueid+"'" + ", "+ lastrequest + ", " + lastreset + ")";
+export function addLog(uniqueid="",lastrequest=0,lastreset=0,expiredate=0,expires=true) {
+    const sql = "INSERT INTO LOG (UNIQUEID, LASTREQUEST, LASTRESET, EXPIREDATE, EXPIRES) VALUES ( '"+uniqueid+"'" + ", "+ lastrequest + ", " + lastreset + ", " + expiredate + ", " + expires + ")";
     const stmnt = db.prepare(sql);
     stmnt.run();
 }
@@ -30,3 +30,17 @@ export function updateLog(query="") {
     const stmnt = db.prepare(sql);
     stmnt.run();
 }
+
+export async function runQuery(query="") {
+    const sql = query;
+    const stmnt = db.prepare(sql);
+    const rows =stmnt.all();
+    return rows as noteLog[]
+}
+
+export async function deleteRows(query="") {
+    const sql = query;
+    const stmnt = db.prepare(sql);
+    stmnt.run();
+}
+
