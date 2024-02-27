@@ -42,8 +42,6 @@
 	async function loadData() {
 		var query = 'SELECT * FROM LOG';
 		var countlogs = await runQuery(query)
-		console.log(countlogs)
-		console.log("checkpoint")
 		totallogs = countlogs.length;
 		query = 'SELECT * FROM LOG where EXPIRES = TRUE and EXPIREDATE < '+new Date().getTime();
 		//query = 'SELECT * FROM LOG where EXPIRES = TRUE'
@@ -79,7 +77,7 @@
 								<button
 									class="btn btn-primary btn-lg"
 									on:click={() => {
-										console.log('Placeholder');
+										//console.log('Placeholder');
 									}}>Flush all {totallogs} Logs</button
 								>
 							</div>
