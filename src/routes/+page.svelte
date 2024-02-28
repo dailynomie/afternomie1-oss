@@ -1,7 +1,7 @@
 <script>
 	//var admin = process.env.ADMINUSER;
 	
-	console.log('Admin: ',process.env.ADMINUSER);
+	console.log('Admin: ',process.env.NODE_ENV);
 </script>
 
 <section>
