@@ -99,11 +99,11 @@
 									class="btn btn-primary btn-lg"
 									on:click={() => {
 										deleteExpired();
-									}}>Flush {totalexpirelogs} expired Messages</button
+									}}>Flush {totalexpirelogs} expired Logs</button
 								>
 							</div>
 							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
-								<p>DUMP ALL LOGS IN COSOLE:</p>
+								<p>DUMP ALL LOGS IN CONSOLE:</p>
 								<button
 									class="btn btn-primary btn-lg"
 									on:click={() => {

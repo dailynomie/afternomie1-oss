@@ -1,4 +1,7 @@
 <script>
+	//var admin = process.env.ADMINUSER;
+	
+	console.log('Admin: ',process.env.ADMINUSER);
 </script>
 
 <section>
