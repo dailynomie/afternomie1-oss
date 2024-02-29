@@ -19,8 +19,8 @@ export function getLog(uniqueid=""): noteLog[] {
 }
 
 
-export function addLog(uniqueid="",lastrequest=0,lastreset=0,expiredate=0,expires=true) {
-    const sql = "INSERT INTO LOG (UNIQUEID, LASTREQUEST, LASTRESET, EXPIREDATE, EXPIRES) VALUES ( '"+uniqueid+"'" + ", "+ lastrequest + ", " + lastreset + ", " + expiredate + ", " + expires + ")";
+export function addLog(uniqueid="",lastrequest=0,lastreset=0,expiredate=0,expires=true,confirmed=true) {
+    const sql = "INSERT INTO LOG (UNIQUEID, LASTREQUEST, LASTRESET, EXPIREDATE, EXPIRES, CONFIRMED) VALUES ( '"+uniqueid+"'" + ", "+ lastrequest + ", " + lastreset + ", " + expiredate + ", " + expires + ", " + confirmed+ ")";
     const stmnt = db.prepare(sql);
     stmnt.run();
 }
