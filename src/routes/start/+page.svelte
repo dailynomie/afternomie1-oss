@@ -40,6 +40,20 @@
 				'content-type': 'application/json'
 			}
 		});
+
+		const response2 = await fetch('/emails/confirm', {
+			method: 'POST',
+			body: JSON.stringify({
+				domain: "https://www.afternomie.com",
+				uniqueid: event.detail,
+				primaryemail: email_primary,
+				secondaryemail: email_secondary,
+				subject: subject
+			}),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});	
 		
    }
 </script>

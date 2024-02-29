@@ -6,6 +6,7 @@
 	var loggedin = false;
 	var totallogs = 0;
 	var totalexpirelogs = 0;
+	var totalnonconfirmedlogs = 0;
 
 	async function runQuery(query:string){
 		const response = await fetch('/an-admin/runquery', {
@@ -43,16 +44,25 @@
 		var query = 'SELECT * FROM LOG';
 		var countlogs = await runQuery(query)
 		totallogs = countlogs.length;
-		query = 'SELECT * FROM LOG where EXPIRES = TRUE and EXPIREDATE < '+new Date().getTime();
+		query = 'SELECT * FROM LOG where EXPIRES = 1 and EXPIREDATE < '+new Date().getTime();
 		//query = 'SELECT * FROM LOG where EXPIRES = TRUE'
 		countlogs = await runQuery(query)
 		totalexpirelogs = countlogs.length;
+		query = 'SELECT * FROM LOG where CONFIRMED = 0';
+		countlogs = await runQuery(query)
+		totalnonconfirmedlogs = countlogs.length;
 
 		
 	}
 
 	async function deleteExpired() {
 		var query = 'DELETE FROM LOG where EXPIRES = TRUE and EXPIREDATE < '+new Date().getTime();
+		await deleteRows(query)
+		await loadData()
+	}
+
+	async function deleteNonConfirmed() {
+		var query = 'DELETE FROM LOG where CONFIRMED = 0';
 		await deleteRows(query)
 		await loadData()
 	}
@@ -111,6 +121,15 @@
 									}}>Dump</button
 								>
 							</div>
+							</div>
+							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
+								<p>NON CONFIRMED:</p>
+								<button
+									class="btn btn-primary btn-lg"
+									on:click={() => {
+										deleteNonConfirmed();
+									}}>Flush {totalnonconfirmedlogs} non confirmed Logs</button
+								>
 						</div>
 					</div>
 				</div>
