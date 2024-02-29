@@ -48,11 +48,14 @@
 		//query = 'SELECT * FROM LOG where EXPIRES = TRUE'
 		countlogs = await runQuery(query)
 		totalexpirelogs = countlogs.length;
-		query = 'SELECT * FROM LOG where CONFIRMED = 0';
+		var d = new Date();
+		query = 'SELECT * FROM LOG where CONFIRMED = 0 and LASTRESET < '+(d.setDate(d.getDate())-(1*(1000 * 3600 * 24))).toString();
 		countlogs = await runQuery(query)
 		totalnonconfirmedlogs = countlogs.length;
 
 		
+			//temp settings for testing:
+			//noteLog[0].LASTRESET = d.setDate(d.getDate())-(7*(1000 * 3600 * 24));
 	}
 
 	async function deleteExpired() {
@@ -62,7 +65,8 @@
 	}
 
 	async function deleteNonConfirmed() {
-		var query = 'DELETE FROM LOG where CONFIRMED = 0';
+		var d = new Date();
+		var query = 'DELETE FROM LOG where CONFIRMED = 0 and LASTRESET < '+(d.setDate(d.getDate())-(1*(1000 * 3600 * 24))).toString();
 		await deleteRows(query)
 		await loadData()
 	}
