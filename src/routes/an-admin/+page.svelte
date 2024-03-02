@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
+	import { config } from '../../../src/secrets.json'
+	
 	var user = '';
 	var pw = '';
 	var loggedin = false;
@@ -89,7 +90,7 @@
 </script>
 
 <body style="background-color: #CAD1D8;">
-	{#if user == 'admin' && pw == 'dus0208l' && loggedin}
+	{#if user == config.secrets.adminuser && pw == config.secrets.adminpw && loggedin}
 		<main class="container" style="background-color: #CAD1D8;">
 			<div class="row align-items-center min-content-height">
 				<div class="col">

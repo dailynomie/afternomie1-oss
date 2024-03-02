@@ -4,9 +4,7 @@
 	import Start3 from "../../components/layout/start3.svelte"
 	import Start4 from "../../components/layout/start4.svelte"
 	import type { PageData } from './$types';
-
-    
-
+	import { config } from '../../../src/secrets.json'
 
 	var exp_checked = false;
 	var subject = "";
@@ -44,7 +42,7 @@
 		const response2 = await fetch('/emails/confirm', {
 			method: 'POST',
 			body: JSON.stringify({
-				domain: "https://www.afternomie.com",
+				domain: config.secrets.domain,
 				uniqueid: event.detail,
 				primaryemail: email_primary,
 				secondaryemail: email_secondary,
