@@ -100,6 +100,15 @@
 					<div class="pb-3">
 						<div class="row">
 							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
+								<p>DUMP ALL LOGS IN CONSOLE:</p>
+								<button
+									class="btn btn-primary btn-lg"
+									on:click={() => {
+										dumpAll();
+									}}>Dump</button
+								>
+							</div>
+							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
 								<p>ALL LOGS:</p>
 								<button
 									class="btn btn-primary btn-lg"
@@ -117,16 +126,7 @@
 									}}>Flush {totalexpirelogs} expired Logs</button
 								>
 							</div>
-							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
-								<p>DUMP ALL LOGS IN CONSOLE:</p>
-								<button
-									class="btn btn-primary btn-lg"
-									on:click={() => {
-										dumpAll();
-									}}>Dump</button
-								>
-							</div>
-							</div>
+							
 							<div class="col-12 col-md-8 offset-md-2 mt-3 mb-3 text-break">
 								<p>NON CONFIRMED:</p>
 								<button
@@ -138,6 +138,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</main>
 	{:else}
